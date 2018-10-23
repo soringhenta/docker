@@ -16,7 +16,7 @@ ENV JENKINS_SLAVE_AGENT_PORT ${agent_port}
 # Jenkins is run with user `jenkins`, uid = 1000
 # If you bind mount a volume from the host or a data container,
 # ensure you use the same uid
-RUN mkdir -p $JENKINS_HOME \
+RUN mkdir -p $JENKINS_HOME
 #  && chown ${uid}:${gid} $JENKINS_HOME \
 #  && addgroup -g ${gid} ${group} \
 #  && adduser -h "$JENKINS_HOME" -u ${uid} -G ${group} -s /bin/bash -D ${user}
