@@ -54,8 +54,7 @@ ARG JENKINS_URL=http://ftp-chi.osuosl.org/pub/jenkins/war/2.147/jenkins.war
 
 # could use ADD but this one does not check Last-Modified header neither does it allow to control checksum
 # see https://github.com/docker/docker/issues/8331
-RUN curl -fsSL ${JENKINS_URL} -o /usr/share/jenkins/jenkins.war \
-  && echo "${JENKINS_SHA}  /usr/share/jenkins/jenkins.war" | sha256sum -c -
+RUN curl -fsSL ${JENKINS_URL} -o /usr/share/jenkins/jenkins.war
 
 ENV JENKINS_UC https://updates.jenkins.io
 ENV JENKINS_UC_EXPERIMENTAL=https://updates.jenkins.io/experimental
