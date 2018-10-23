@@ -2,10 +2,10 @@ FROM openjdk:8-jdk-alpine
 
 RUN apk add --no-cache git openssh-client curl unzip bash ttf-dejavu coreutils tini
 
-ARG user=jenkins
-ARG group=jenkins
-ARG uid=1000
-ARG gid=1000
+#ARG user=jenkins
+#ARG group=jenkins
+#ARG uid=1000
+#ARG gid=1000
 ARG http_port=8080
 ARG agent_port=50000
 ARG JENKINS_HOME=/var/jenkins_home
@@ -17,9 +17,9 @@ ENV JENKINS_SLAVE_AGENT_PORT ${agent_port}
 # If you bind mount a volume from the host or a data container,
 # ensure you use the same uid
 RUN mkdir -p $JENKINS_HOME \
-  && chown ${uid}:${gid} $JENKINS_HOME \
-  && addgroup -g ${gid} ${group} \
-  && adduser -h "$JENKINS_HOME" -u ${uid} -G ${group} -s /bin/bash -D ${user}
+#  && chown ${uid}:${gid} $JENKINS_HOME \
+#  && addgroup -g ${gid} ${group} \
+#  && adduser -h "$JENKINS_HOME" -u ${uid} -G ${group} -s /bin/bash -D ${user}
 
 # Jenkins home directory is a volume, so configuration and build history
 # can be persisted and survive image upgrades
@@ -59,7 +59,7 @@ EXPOSE ${agent_port}
 
 ENV COPY_REFERENCE_FILE_LOG $JENKINS_HOME/copy_reference_file.log
 
-USER ${user}
+#USER ${user}
 
 COPY jenkins-support /usr/local/bin/jenkins-support
 COPY jenkins.sh /usr/local/bin/jenkins.sh
