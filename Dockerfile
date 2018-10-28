@@ -1,6 +1,6 @@
 FROM openjdk:8-jdk-alpine
 
-RUN apk update && apk upgrade && apk add --no-cache git openssh-client curl unzip bash ttf-dejavu coreutils tini docker
+RUN apk update && apk upgrade && apk add --no-cache git openssh-client curl unzip bash ttf-dejavu coreutils tini docker python ansible
 
 #ARG user=jenkins
 #ARG group=jenkins
