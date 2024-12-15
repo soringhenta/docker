@@ -15,5 +15,6 @@ jobs:
            echo "Salut din ${{ github.actor }}."
            echo "Current branch is '${{ github.ref }}'."
            tree
+           helm --help
         shell: bash
         
