@@ -2,9 +2,7 @@ name: My First Workflow
 on:
   push:
     branches:
-      - 'release/**'
-    paths:
-      - 'doc/**'
+      - 'master'
 jobs:
   first_job:
     name: My first job
